@@ -2,18 +2,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sorts {
-   public enum SortOrder { ASCENDING, DESCENDING }
+   public enum SortOrder { 
+      ASCENDING(1),
+      DESCENDING(-1);
+      public final int order;
+      SortOrder(int order){
+         this.order = order;
+      }
+   }
 
    public static <E extends Comparable<E>> void bubblesort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
       
       for(int k = 0; k < highindex; k++){
          for(int i = lowindex+1; i < highindex; i++){
-            if(list.get( i ).compareTo( list.get(i-1) ) > 0 && sortOrder == SortOrder.ASCENDING){
-               E data = list.get( i );
-               list.set( i,list.get( i-1 ) );
-               list.set( i-1,data );
-            } else if(list.get( i ).compareTo( list.get(i-1) ) < 0 && sortOrder == SortOrder.DESCENDING){
+            if(list.get( i ).compareTo( list.get(i-1) ) == sortOrder.order){// && sortOrder == SortOrder.ASCENDING){
                E data = list.get( i );
                list.set( i,list.get( i-1 ) );
                list.set( i-1,data );
@@ -27,12 +30,8 @@ public class Sorts {
       for(int i = lowindex ; i < highindex; i++){
          E currentElement = list.get( i );
          int k;
-         if(sortOrder == SortOrder.ASCENDING)
-            for(k = i - 1; k >= lowindex && list.get( k ).compareTo( currentElement) > 0; k--)
-               list.set( k+1, list.get( k ) );
-         else
-            for(k = i - 1; k >= lowindex && list.get( k ).compareTo( currentElement) < 0; k--)
-               list.set( k+1, list.get( k ) );
+         for(k = i - 1; k >= lowindex && list.get( k ).compareTo( currentElement) == sortOrder.order; k--)
+            list.set( k+1, list.get( k ) );
          list.set( k+1,currentElement );
       }
    }
@@ -45,9 +44,7 @@ public class Sorts {
          int minIndex = currentIndex;
          for (int i = currentIndex + 1; i < highindex; i++)
          {
-            if (list.get( i ).compareTo(list.get( minIndex )) < 0 && sortOrder == SortOrder.ASCENDING)
-               minIndex = i;
-            else if (list.get( i ).compareTo(list.get( minIndex )) > 0 && sortOrder == SortOrder.DESCENDING)
+            if (list.get( i ).compareTo(list.get( minIndex )) == -sortOrder.order)
                minIndex = i;
          }
          if (minIndex != currentIndex)

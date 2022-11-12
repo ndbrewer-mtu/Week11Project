@@ -39,7 +39,24 @@ public class Sorts {
 
    public static <E extends Comparable<E>> void selectionsort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
-      
+     
+      for (int currentIndex = lowindex; currentIndex < highindex - 1; currentIndex++)
+      {
+         int minIndex = currentIndex;
+         for (int i = currentIndex + 1; i < highindex; i++)
+         {
+            if (list.get( i ).compareTo(list.get( minIndex )) < 0 && sortOrder == SortOrder.ASCENDING)
+               minIndex = i;
+            else if (list.get( i ).compareTo(list.get( minIndex )) > 0 && sortOrder == SortOrder.DESCENDING)
+               minIndex = i;
+         }
+         if (minIndex != currentIndex)
+         {
+            E temp = list.get( currentIndex );
+            list.set( currentIndex,list.get( minIndex ) );
+            list.set( minIndex, temp );
+         }
+      }
    }
 
    public static <E extends Comparable> void mergesort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {

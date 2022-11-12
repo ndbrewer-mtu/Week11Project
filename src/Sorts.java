@@ -103,7 +103,7 @@ public class Sorts {
       }
       
       while(left < leftList.size()) list.set( currentIndex++, leftList.get(left++ ));
-      while(right < rightList.size()) list.set( currentIndex++, rightList.get(right++ ));
+      //while(right < rightList.size()) list.set( currentIndex++, rightList.get(right++ ));
       System.out.println("l: "+list);
    }
 

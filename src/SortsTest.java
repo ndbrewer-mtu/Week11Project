@@ -76,9 +76,40 @@ public class SortsTest {
 	}
 	//Insert Sort =====================================================
 	
+	//Selection Sort =====================================================
 	@Test
-	public void selectionsort() {
+	public void selectionsortNullArg() {
+		List< Integer > start = null;
+		List< Integer > list = null;
+		try {
+			Sorts.selectionsort(list,0,1,Sorts.SortOrder.DESCENDING);
+			fail(String.format( "FAILED: selectionsort(%s) did not throw IllegalArgumentException",start));
+		}catch ( IllegalArgumentException e ){
+			//expected
+		}
+		catch ( Exception e ){
+			fail(String.format( "FAILED: selectionsort(%s) threw %s",start,e));
+		}
 	}
+	@Test
+	public void selectionsort0() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		Sorts.selectionsort(list,0,5,Sorts.SortOrder.ASCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: selectionsort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void selectionsort1() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
+		Sorts.selectionsort(list,0,5,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: selectionsort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	//Selection Sort =====================================================
 	
 	@Test
 	public void mergesort() {

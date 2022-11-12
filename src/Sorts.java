@@ -62,7 +62,7 @@ public class Sorts {
    public static <E extends Comparable> void mergesort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
       if(lowindex < highindex){
-         int mid = ( lowindex + highindex ) / 2;
+         int mid = ( lowindex + highindex ) / 2; // breaks odd sized lists.
          
          
          mergesort( list,lowindex,mid,sortOrder );

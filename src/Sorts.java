@@ -68,17 +68,20 @@ public class Sorts {
          mergesort( list,mid+1,highindex,sortOrder );
          
          merge(list,lowindex,mid,highindex);
+         System.out.println("\nExit Merge");
       }
    }
    private static <E extends Comparable> void merge( List< E > list, int start, int middle, int end ){
-      List<E> leftList = new ArrayList<>(middle - start + 1);
-      List<E> rightList = new ArrayList<>(end - middle);
+      System.out.println("Entered merge()\n");
+      List<E> leftList = new ArrayList<>();
+      List<E> rightList = new ArrayList<>();
       
-      for(int i = 0; i < leftList.size();i++)
+      for(int i = 0; i < (middle - start + 1); i++)
          leftList.add( list.get( start+i ) );
-      
-      for(int i = 0; i < rightList.size();i++)
+      System.out.println(leftList);
+      for(int i = 0; i < (end - middle); i++)
          rightList.add( list.get( middle+1+i ) );
+      System.out.println(rightList);
       
       int left=0,right=0;
       
@@ -87,10 +90,12 @@ public class Sorts {
       while(left < leftList.size() && right < rightList.size()){
          if(leftList.get( left ).compareTo( rightList.get( right ) ) <= 0){
             list.set(currentIndex,leftList.get( left ));
+            System.out.println(list.get( currentIndex ));
             left++;
          }
          else {
             list.set( currentIndex, rightList.get(right) );
+            System.out.println(list.get( currentIndex ));
             right++;
          }
          currentIndex++;
@@ -98,6 +103,7 @@ public class Sorts {
       
       while(left < leftList.size()) list.set( currentIndex++, leftList.get(left++ ));
       while(right < rightList.size()) list.set( currentIndex++, rightList.get(right++ ));
+      System.out.println(list);
    }
 
    public static <E extends Comparable<E>> void mysort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {

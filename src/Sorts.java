@@ -76,12 +76,18 @@ public class Sorts {
       List<E> leftList = new ArrayList<>();
       List<E> rightList = new ArrayList<>();
       
-      for(int i = 0; i < (middle - start + 1); i++)
+      for(int i = 0; i < (middle - start + 1); i++){
          leftList.add( list.get( start+i ) );
+         System.out.println("l I: " + i);
+      }
+      
       System.out.println("ll: "+leftList);
       
-      for(int i = 0; i < (end - middle + 1); i++)
-         rightList.add( list.get( middle+i ) );
+      for(int i = 0; i < (end - middle); i++){
+         rightList.add( list.get( middle+1+i ) );
+         System.out.println("r I: " + i);
+      }
+      
       System.out.println("rl: "+rightList);
       
       int left=0,right=0;

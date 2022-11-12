@@ -61,10 +61,47 @@ public class Sorts {
 
    public static <E extends Comparable> void mergesort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
+      if(lowindex < highindex){
+         int mid = ( lowindex + highindex ) / 2;
+         
+         mergesort( list,lowindex,mid,sortOrder );
+         mergesort( list,mid+1,highindex,sortOrder );
+         
+         merge(list,lowindex,mid,highindex);
+      }
+   }
+   private static <E extends Comparable> void merge( List< E > list, int start, int middle, int end ){
+      List<E> leftList = new ArrayList<>(middle - start + 1);
+      List<E> rightList = new ArrayList<>(end - middle);
       
+      for(int i = 0; i < leftList.size();i++)
+         leftList.add( list.get( start+i ) );
+      
+      for(int i = 0; i < rightList.size();i++)
+         rightList.add( list.get( middle+1+i ) );
+      
+      int left=0,right=0;
+      
+      int currentIndex = start;
+      
+      while(left < leftList.size() && right < rightList.size()){
+         if(leftList.get( left ).compareTo( rightList.get( right ) ) <= 0){
+            list.set(currentIndex,leftList.get( left ));
+            left++;
+         }
+         else {
+            list.set( currentIndex, rightList.get(right) );
+            right++;
+         }
+         currentIndex++;
+      }
+      
+      while(left < leftList.size()) list.set( currentIndex++, leftList.get(left++ ));
+      while(right < rightList.size()) list.set( currentIndex++, rightList.get(right++ ));
    }
 
    public static <E extends Comparable<E>> void mysort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
+      
    }
 }

@@ -131,7 +131,7 @@ public class SortsTest {
 		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 0,1,2,3,4,5 ) );
-		Sorts.mergesort(list,0,5,Sorts.SortOrder.ASCENDING);
+		Sorts.mergesort(list,0,6,Sorts.SortOrder.ASCENDING);
 		if(!list.equals( expected ))
 			fail(String.format( "FAILED: mergesort(%s) -> %s, expected: %s",start,list,expected ));
 	}

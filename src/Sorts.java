@@ -74,11 +74,11 @@ public class Sorts {
    }
    private static <E extends Comparable> void merge( List< E > list, int start, int middle, int end ){
       System.out.println("Entered merge()\n");
-      System.out.println(middle);
+      
       List<E> leftList = new ArrayList<>();
       List<E> rightList = new ArrayList<>();
       
-      for(int i = 0; i < (middle - start + 1); i++){
+      for(int i = 0; i < (middle - start+1); i++){
          leftList.add( list.get( start+i ) );
       }
       

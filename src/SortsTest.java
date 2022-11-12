@@ -22,7 +22,7 @@ public class SortsTest {
 		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
-		Sorts.bubblesort(list,1,4,Sorts.SortOrder.ASCENDING);
+		Sorts.bubblesort(list,0,5,Sorts.SortOrder.ASCENDING);
 		if(!list.equals( expected ))
 			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
 	}
@@ -111,9 +111,40 @@ public class SortsTest {
 	}
 	//Selection Sort =====================================================
 	
+	//Merge Sort =====================================================
 	@Test
-	public void mergesort() {
+	public void mergesortNullArg() {
+		List< Integer > start = null;
+		List< Integer > list = null;
+		try {
+			Sorts.mergesort(list,0,1,Sorts.SortOrder.DESCENDING);
+			fail(String.format( "FAILED: mergesort(%s) did not throw IllegalArgumentException",start));
+		}catch ( IllegalArgumentException e ){
+			//expected
+		}
+		catch ( Exception e ){
+			fail(String.format( "FAILED: mergesort(%s) threw %s",start,e));
+		}
 	}
+	@Test
+	public void mergesort0() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		Sorts.mergesort(list,0,5,Sorts.SortOrder.ASCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mergesort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void mergesort1() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
+		Sorts.mergesort(list,0,5,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mergesort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	//Merge Sort =====================================================
 	
 	@Test
 	public void mysort() {

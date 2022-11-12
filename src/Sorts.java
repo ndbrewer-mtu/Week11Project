@@ -78,10 +78,11 @@ public class Sorts {
       
       for(int i = 0; i < (middle - start + 1); i++)
          leftList.add( list.get( start+i ) );
-      System.out.println(leftList);
+      System.out.println("ll: "+leftList);
+      
       for(int i = 0; i < (end - middle); i++)
-         rightList.add( list.get( middle+1+i ) );
-      System.out.println(rightList);
+         rightList.add( list.get( middle+i ) );
+      System.out.println("rl: "+rightList);
       
       int left=0,right=0;
       
@@ -90,12 +91,12 @@ public class Sorts {
       while(left < leftList.size() && right < rightList.size()){
          if(leftList.get( left ).compareTo( rightList.get( right ) ) <= 0){
             list.set(currentIndex,leftList.get( left ));
-            System.out.println(list.get( currentIndex ));
+            System.out.println("l: "+list.get( currentIndex ));
             left++;
          }
          else {
             list.set( currentIndex, rightList.get(right) );
-            System.out.println(list.get( currentIndex ));
+            System.out.println("r: "+list.get( currentIndex ));
             right++;
          }
          currentIndex++;
@@ -103,7 +104,7 @@ public class Sorts {
       
       while(left < leftList.size()) list.set( currentIndex++, leftList.get(left++ ));
       while(right < rightList.size()) list.set( currentIndex++, rightList.get(right++ ));
-      System.out.println(list);
+      System.out.println("l: "+list);
    }
 
    public static <E extends Comparable<E>> void mysort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {

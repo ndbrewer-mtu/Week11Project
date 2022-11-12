@@ -80,7 +80,7 @@ public class Sorts {
          leftList.add( list.get( start+i ) );
       System.out.println("ll: "+leftList);
       
-      for(int i = 0; i < (end - middle); i++)
+      for(int i = 0; i < (end - middle + 1); i++)
          rightList.add( list.get( middle+i ) );
       System.out.println("rl: "+rightList);
       

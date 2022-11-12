@@ -78,7 +78,6 @@ public class Sorts {
          leftList.add( list.get( start+i ) );
       }
       
-      
       for(int i = 0; i < (end - middle); i++){
          if(middle+1+i < list.size())
             rightList.add( list.get( middle+1+i ) );

@@ -1,3 +1,4 @@
+import javax.rmi.ssl.SslRMIClientSocketFactory;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,12 +66,10 @@ public class Sorts {
          mergesort( list,lowindex,mid,sortOrder );
          mergesort( list,mid+1,highindex,sortOrder );
          
-         merge(list,lowindex,mid,highindex);
-         System.out.println("\nExit Merge");
+         merge(list,lowindex,mid,highindex,sortOrder);
       }
    }
-   private static <E extends Comparable> void merge( List< E > list, int start, int middle, int end ){
-      System.out.println("Entered merge()\n");
+   private static <E extends Comparable> void merge( List< E > list, int start, int middle, int end, SortOrder sortOrder ){
       
       List<E> leftList = new ArrayList<>();
       List<E> rightList = new ArrayList<>();
@@ -81,32 +80,32 @@ public class Sorts {
       
       
       for(int i = 0; i < (end - middle); i++){
-         rightList.add( list.get( middle+1+i ) );
-         //System.out.println("r I: " + i);
+         if(middle+1+i < list.size())
+            rightList.add( list.get( middle+1+i ) );
+         else
+            rightList.add( list.get( list.size()-1-i ) );
       }
       
-      //System.out.println("rl: "+rightList);
       
       int left=0,right=0;
       
       int currentIndex = start;
       
       while(left < leftList.size() && right < rightList.size()){
-         if(leftList.get( left ).compareTo( rightList.get( right ) ) <= 0){
+         int comparison = leftList.get( left ).compareTo( rightList.get( right ) );
+         if((comparison > 0 && sortOrder == SortOrder.DESCENDING) || (sortOrder == SortOrder.ASCENDING && comparison <= 0)){
             list.set(currentIndex,leftList.get( left ));
             left++;
          }
          else {
             list.set( currentIndex, rightList.get(right) );
-            //System.out.println("r: "+list.get( currentIndex ));
             right++;
          }
          currentIndex++;
       }
       
-      while(left < leftList.size()) list.set( currentIndex++, leftList.get(left++ ));
-      while(right < rightList.size()) list.set( currentIndex++, rightList.get(right++ ));
-      //System.out.println("l: "+list);
+      while(left < leftList.size() && currentIndex < list.size()) list.set( currentIndex++, leftList.get(left++ ));
+      while(right < rightList.size() && currentIndex < list.size()) list.set( currentIndex++, rightList.get(right++ ));
    }
 
    public static <E extends Comparable<E>> void mysort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {

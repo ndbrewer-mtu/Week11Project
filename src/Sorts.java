@@ -44,10 +44,8 @@ public class Sorts {
       {
          int minIndex = currentIndex;
          for (int i = currentIndex + 1; i < highindex; i++)
-         {
             if (list.get( i ).compareTo(list.get( minIndex )) == -sortOrder.order)
                minIndex = i;
-         }
          if (minIndex != currentIndex)
          {
             E temp = list.get( currentIndex );

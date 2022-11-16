@@ -27,6 +27,51 @@ public class SortsTest {
 			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
 	}
 	@Test
+	public void bubblesort2() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 5 ) );
+		Sorts.bubblesort(list,0,1,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void bubblesort3() {
+		List< Integer > start = new ArrayList<>( Arrays.asList(  ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList(  ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList(  ) );
+		Sorts.bubblesort(list,0,0,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void bubblesort4() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 0,1,2,3,4,5 ) );
+		Sorts.bubblesort(list,0,6,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void bubblesort5() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,2,1 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,2,1 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,2,3,4,5 ) );
+		Sorts.bubblesort(list,0,6,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void bubblesort6() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		Sorts.bubblesort(list,0,5,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
 	public void bubblesortNullArg() {
 		List< Integer > start = null;
 		List< Integer > list = null;

@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Sorts {
    public enum SortOrder { 
-      ASCENDING(1),
-      DESCENDING(-1);
+      ASCENDING(-1),
+      DESCENDING(1);
       public final int order;
       SortOrder(int order){
          this.order = order;
@@ -31,7 +31,7 @@ public class Sorts {
       for(int i = lowindex ; i < highindex; i++){
          E currentElement = list.get( i );
          int k;
-         for(k = i - 1; k >= lowindex && list.get( k ).compareTo( currentElement) == sortOrder.order; k--)
+         for(k = i - 1; k >= lowindex && list.get( k ).compareTo( currentElement) == -sortOrder.order; k--)
             list.set( k+1, list.get( k ) );
          list.set( k+1,currentElement );
       }

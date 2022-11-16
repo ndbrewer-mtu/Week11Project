@@ -13,7 +13,7 @@ public class SortsTest {
 		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
-		Sorts.bubblesort(list,0,5,Sorts.SortOrder.DESCENDING);
+		Sorts.bubblesort(list,0,5,Sorts.SortOrder.ASCENDING);
 		if(!list.equals( expected ))
 			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
 	}
@@ -22,7 +22,7 @@ public class SortsTest {
 		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
-		Sorts.bubblesort(list,0,5,Sorts.SortOrder.ASCENDING);
+		Sorts.bubblesort(list,0,5,Sorts.SortOrder.DESCENDING);
 		if(!list.equals( expected ))
 			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
 	}
@@ -49,7 +49,7 @@ public class SortsTest {
 		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 0,1,2,3,4,5 ) );
-		Sorts.bubblesort(list,0,6,Sorts.SortOrder.DESCENDING);
+		Sorts.bubblesort(list,0,6,Sorts.SortOrder.ASCENDING);
 		if(!list.equals( expected ))
 			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
 	}
@@ -58,7 +58,7 @@ public class SortsTest {
 		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,2,1 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,2,1 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,2,3,4,5 ) );
-		Sorts.bubblesort(list,0,6,Sorts.SortOrder.DESCENDING);
+		Sorts.bubblesort(list,0,6,Sorts.SortOrder.ASCENDING);
 		if(!list.equals( expected ))
 			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
 	}
@@ -67,7 +67,7 @@ public class SortsTest {
 		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
-		Sorts.bubblesort(list,0,5,Sorts.SortOrder.DESCENDING);
+		Sorts.bubblesort(list,0,5,Sorts.SortOrder.ASCENDING);
 		if(!list.equals( expected ))
 			fail(String.format( "FAILED: bubblesort(%s) -> %s, expected: %s",start,list,expected ));
 	}
@@ -88,7 +88,7 @@ public class SortsTest {
 	
 	//Insert Sort =====================================================
 	@Test
-	public void insertionsortNullArg() {
+	public void insertionsortNullArg() { // test a null Arg throwing IllegalArugmentExcpetion
 		List< Integer > start = null;
 		List< Integer > list = null;
 		try {
@@ -102,7 +102,7 @@ public class SortsTest {
 		}
 	}
 	@Test
-	public void insertionsort0() {
+	public void insertionsort0() { // test Ascending sort
 		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
@@ -111,11 +111,56 @@ public class SortsTest {
 			fail(String.format( "FAILED: insertionsort(%s) -> %s, expected: %s",start,list,expected ));
 	}
 	@Test
-	public void insertionsort1() {
+	public void insertionsort1() { // test Descending Sort
 		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
 		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
 		List<Integer> expected = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
 		Sorts.insertionsort(list,0,5,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: insertionsort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void insertionsort2() { // test single element arrays
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 5 ) );
+		Sorts.insertionsort(list,0,1,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: insertionsort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void insertionsort3() { // test empty arrays
+		List< Integer > start = new ArrayList<>( Arrays.asList(  ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList(  ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList(  ) );
+		Sorts.insertionsort(list,0,0,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: insertionsort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void insertionsort4() { // test even array
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 0,1,2,3,4,5 ) );
+		Sorts.insertionsort(list,0,6,Sorts.SortOrder.ASCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: insertionsort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void insertionsort5() { // test duplicate in array
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,2,1 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,2,1 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,2,3,4,5 ) );
+		Sorts.insertionsort(list,0,6,Sorts.SortOrder.ASCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: insertionsort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void insertionsort6() { // test already sorted array
+		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		Sorts.insertionsort(list,0,5,Sorts.SortOrder.ASCENDING);
 		if(!list.equals( expected ))
 			fail(String.format( "FAILED: insertionsort(%s) -> %s, expected: %s",start,list,expected ));
 	}

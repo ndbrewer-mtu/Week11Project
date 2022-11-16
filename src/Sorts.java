@@ -92,7 +92,15 @@ public class Sorts {
    
       insertionsort( arg0,(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
    }
-
+   
+   /**
+    * Sorts a List using Selection sort Algorithm standard.
+    * @param list List of elements to sort.
+    * @param lowindex index to start sorting from. list[lowindex...highindex]. (inclusive)
+    * @param highindex index to stop sorting at. list[lowindex...highindex]. (exclusive)
+    * @param sortOrder order to sort in [ASCENDING, DESCENDING].
+    * @param <E> Generic type that extends Comparable.
+    */
    public static <E extends Comparable<E>> void selectionsort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
      
@@ -109,6 +117,25 @@ public class Sorts {
             list.set( minIndex, temp );
          }
       }
+   }
+   /**
+    * Sorts a List using Selection sort Algorithm standard.
+    * Takes in object array as argument instead of 4 arguments.
+    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.
+    * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
+    * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
+    * @param <E> Generic type that should extend Comparable.
+    */
+   public static <E extends Comparable<E>> void selectionsort(Object[] arg){
+      if( arg.length != 4 )
+         throw new IllegalArgumentException();
+      for (Object o : arg)
+         if(o == null)
+            throw new IllegalArgumentException();
+      
+      List<E> arg0 = ( List< E > ) arg[0];
+   
+      selectionsort( arg0,(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
    }
 
    public static <E extends Comparable> void mergesort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {

@@ -2,7 +2,16 @@ import javax.rmi.ssl.SslRMIClientSocketFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * All sorts in this class are DESTRUCTIVE.
+ * Meaning they destroy the array as they sort it.
+ * If you want to prevent losing the previous unsorted data you should copy your array before calling any method in this class.
+ */
 public class Sorts {
+   /**
+    * Order to sort in.
+    * <br><code>Ascending = -1</code><br><code>Descending = 1</code>
+    */
    public enum SortOrder { 
       ASCENDING(-1),
       DESCENDING(1);
@@ -37,7 +46,8 @@ public class Sorts {
    /**
     * Sorts a List using Bubble sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.
+    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder. <br>
+    * <br>
     * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
@@ -76,7 +86,8 @@ public class Sorts {
    /**
     * Sorts a List using Insertion sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.
+    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
+    * <br>
     * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
@@ -121,7 +132,8 @@ public class Sorts {
    /**
     * Sorts a List using Selection sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.
+    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
+    * <br>
     * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
@@ -161,7 +173,8 @@ public class Sorts {
    /**
     * Sorts a List using Merge sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.
+    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
+    * <br>
     * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
@@ -224,7 +237,15 @@ public class Sorts {
       while(left < leftList.size() && currentIndex < list.size()) list.set( currentIndex++, leftList.get(left++ ));
       while(right < rightList.size() && currentIndex < list.size()) list.set( currentIndex++, rightList.get(right++ ));
    }
-
+   
+   /**
+    * Sorts a List using my sort Algorithm.
+    * @param list List of elements to sort.
+    * @param lowindex index to start sorting from. list[lowindex...highindex]. (inclusive)
+    * @param highindex index to stop sorting at. list[lowindex...highindex]. (exclusive)
+    * @param sortOrder order to sort in. [ASCENDING, DESCENDING].
+    * @param <E> Generic type that extends Comparable.
+    */
    public static <E extends Comparable<E>> void mysort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
       

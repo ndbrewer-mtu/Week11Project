@@ -35,7 +35,10 @@ public class Sorts {
    }
    
    /**
-    * Sorts a List using Bubblesort Algorithm standard. takes in object array as argument instead of 4 arguments. Still only accepts up to 4 arguments in order of List, int, int, Sortorder.
+    * Sorts a List using Bubblesort Algorithm standard.
+    * Takes in object array as argument instead of 4 arguments.
+    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.
+    * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
     */

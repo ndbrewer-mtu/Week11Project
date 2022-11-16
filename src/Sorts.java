@@ -11,7 +11,15 @@ public class Sorts {
          this.order = order;
       }
    }
-
+   
+   /**
+    * Sorts a List using Bubblesort Algorithm standard.
+    * @param list List of elements to sort.
+    * @param lowindex index to start sorting from. list[lowindex...highindex]. (inclusive)
+    * @param highindex index to stop sorting at. list[lowindex...highindex]. (exclusive)
+    * @param sortOrder order to sort in [ASCENDING, DESCENDING].
+    * @param <E> Generic type that extends Comparable.
+    */
    public static <E extends Comparable<E>> void bubblesort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
       
@@ -24,6 +32,23 @@ public class Sorts {
             }
          }
       }
+   }
+   
+   /**
+    * Sorts a List using Bubblesort Algorithm standard. takes in object array as argument instead of 4 arguments. Still only accepts up to 4 arguments in order of List, int, int, Sortorder.
+    * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
+    * @param <E> Generic type that should extend Comparable.
+    */
+   public static <E extends Comparable<E>> void bubblesort(Object[] arg){
+      if( arg.length != 4 )
+         throw new IllegalArgumentException();
+      for (Object o : arg)
+         if(o == null)
+            throw new IllegalArgumentException();
+      
+      List<E> arg0 = ( List< E > ) arg[0];
+      
+      bubblesort( arg0,(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
    }
 
    public static <E extends Comparable<E>> void insertionsort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {

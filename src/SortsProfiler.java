@@ -16,8 +16,7 @@ public class SortsProfiler {
 	
 	/**
 	 * Profiles arguments using given method.
-	 * @param arg Objects array that should only contain 4 elements in order of List, int low, int high, Sortorder. <br>
-	 *            in a range of [low,high)
+	 * @param arg Objects array that should only contain 4 elements in order of List, int low, int high, Sortorder. in a range of [low,high)
 	 * @param c method called (must only have one parameter)
 	 * @return time (in milliseconds) it took to complete action.
 	 */

@@ -5,10 +5,8 @@ import java.util.stream.Collectors;
 
 /**
  * This is the ProfileSorts assignment.
- * <Description here>
  *
  * @author Nathan Brewer
- * <p>
  * CS1131, 11/16/2022
  * The Week11Project project.
  */

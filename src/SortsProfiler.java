@@ -79,7 +79,7 @@ public class SortsProfiler {
 			System.out.println();
 		}
 		
-		
+		System.out.println("Finished");
 	}
 	
 }

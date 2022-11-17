@@ -44,7 +44,7 @@ public class SortsProfiler {
 			int Elements = (int) Math.pow( 2,i );
 			System.out.printf( "%15d",Elements ); // Elements in the List
 			
-			long my = 0; // my sort is not implemented yet.
+			long my = 0;
 			for(int j = 0 ; j < numIterations; j++){
 				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
 				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};

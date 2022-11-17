@@ -256,7 +256,7 @@ public class Sorts {
     */
    public static <E extends Comparable<E>> void mysort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
-      
+      quicksort( list,lowindex,highindex,sortOrder );
       
    }
    /**
@@ -279,4 +279,43 @@ public class Sorts {
       
       mysort( (List<? extends Comparable> ) arg[0], ( int ) arg[1], ( int ) arg[2], ( SortOrder ) arg[3] );
    }
-}
+   
+   /**
+    * Sorts a List using Quick sort Algorithm standard.
+    * @param list List of elements to sort.
+    * @param lowindex index to start sorting from. list[lowindex...highindex]. (inclusive)
+    * @param highindex index to stop sorting at. list[lowindex...highindex]. (exclusive)
+    * @param sortOrder order to sort in. [ASCENDING, DESCENDING].
+    * @param <E> Generic type that extends Comparable.
+    */
+   private static <E extends Comparable<E>> void quicksort(List< E > list, int lowindex, int highindex, SortOrder sortOrder){
+      if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
+      highindex-=1;
+      if(lowindex < highindex){
+         int pivotIndex = partition(list,lowindex,highindex,sortOrder);
+         
+         quicksort( list,lowindex,pivotIndex,sortOrder );
+         quicksort( list,pivotIndex+1,highindex,sortOrder );
+      }
+   }
+   
+   private static <E extends Comparable<E>> int partition(List< E > list, int lowindex, int highindex, SortOrder sortOrder){
+      int pivotIndex = (lowindex + highindex) / 2;
+      E pivotValue = list.get( pivotIndex );
+      lowindex--;
+      highindex++;
+      
+      while ( true ){
+         do lowindex++; while ( list.get( lowindex ).compareTo( pivotValue ) == sortOrder.order );
+         do highindex--; while ( list.get( highindex ).compareTo( pivotValue ) == -sortOrder.order);
+         
+         if(lowindex >= highindex) return highindex;
+         
+         E temp = list.get( lowindex );
+         list.set( lowindex, list.get(highindex) );
+         list.set(highindex,temp);
+      }
+      
+   }
+   
+   }

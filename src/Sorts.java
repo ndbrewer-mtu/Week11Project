@@ -60,9 +60,7 @@ public class Sorts {
          if(o == null)
             throw new IllegalArgumentException();
       
-      List<E> arg0 = ( List< E > ) arg[0];
-      
-      bubblesort( arg0,(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
+      bubblesort( (List<? extends Comparable> ) arg[0],(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
    }
    
    /**
@@ -101,9 +99,7 @@ public class Sorts {
          if(o == null)
             throw new IllegalArgumentException();
       
-      List<E> arg0 = ( List< E > ) arg[0];
-   
-      insertionsort( arg0,(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
+      insertionsort( (List<? extends Comparable> ) arg[0],(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
    }
    
    /**
@@ -147,10 +143,8 @@ public class Sorts {
       for (Object o : arg)
          if(o == null)
             throw new IllegalArgumentException();
-      
-      List<E> arg0 = ( List< E > ) arg[0];
    
-      selectionsort( arg0,(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
+      selectionsort( (List<? extends Comparable> ) arg[0],(int) arg[1],(int) arg[2],(SortOrder ) arg[3] );
    }
    
    /**
@@ -189,10 +183,8 @@ public class Sorts {
       for (Object o : arg)
          if(o == null)
             throw new IllegalArgumentException();
-      
-      List<E> arg0 = ( List< E > ) arg[0];
    
-      mergesort( arg0, ( int ) arg[1], ( int ) arg[2], ( SortOrder ) arg[3] );
+      mergesort( (List<? extends Comparable> ) arg[0], ( int ) arg[1], ( int ) arg[2], ( SortOrder ) arg[3] );
    }
    
    /**
@@ -272,8 +264,6 @@ public class Sorts {
          if(o == null)
             throw new IllegalArgumentException();
       
-      List<E> arg0 = ( List< E > ) arg[0];
-      
-      mergesort( arg0, ( int ) arg[1], ( int ) arg[2], ( SortOrder ) arg[3] );
+      mysort( (List<? extends Comparable> ) arg[0], ( int ) arg[1], ( int ) arg[2], ( SortOrder ) arg[3] );
    }
 }

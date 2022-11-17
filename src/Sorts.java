@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This is the ProfileSorts assignment.
+ * This is the ProfileSorts assignment.<br>
+ * <br>
  * All sorts in this class are DESTRUCTIVE.
  * Meaning they destroy the array as they sort it.
  * If you want to prevent losing the previous unsorted data you should copy your array before calling any method in this class.

@@ -50,6 +50,7 @@ public class Sorts {
     * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
+    * @see Sorts#bubblesort(List, int, int, SortOrder)
     */
    public static <E extends Comparable<E>> void bubblesort(Object[] arg){
       if( arg.length != 4 )
@@ -90,6 +91,7 @@ public class Sorts {
     * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
+    * @see Sorts#insertionsort(List, int, int, SortOrder)            
     */
    public static <E extends Comparable<E>> void insertionsort(Object[] arg){
       if( arg.length != 4 )
@@ -136,6 +138,7 @@ public class Sorts {
     * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
+    * @see Sorts#selectionsort(List, int, int, SortOrder) 
     */
    public static <E extends Comparable<E>> void selectionsort(Object[] arg){
       if( arg.length != 4 )
@@ -177,6 +180,7 @@ public class Sorts {
     * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
+    * @see Sorts#mergesort(List, int, int, SortOrder) 
     */
    public static <E extends Comparable<E>> void mergesort(Object[] arg){
       if( arg.length != 4 )
@@ -198,6 +202,7 @@ public class Sorts {
     * @param end index to stop sorting at. list[middle...end]. (exclusive)
     * @param sortOrder order to sort in. [ASCENDING, DESCENDING].
     * @param <E> Generic type that extends Comparable.
+    * @see Sorts#mergesort(List, int, int, SortOrder)
     */
    private static <E extends Comparable> void merge( List< E > list, int start, int middle, int end, SortOrder sortOrder ){
       

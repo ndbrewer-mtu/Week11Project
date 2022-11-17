@@ -327,6 +327,80 @@ public class SortsTest {
 	//Merge Sort =====================================================
 	
 	@Test
-	public void mysort() {
+	public void mysortNullArg() {
+		List< Integer > start = null;
+		List< Integer > list = null;
+		try {
+			Sorts.mysort(list,0,1,Sorts.SortOrder.DESCENDING);
+			fail(String.format( "FAILED: mysort(%s) did not throw IllegalArgumentException",start));
+		}catch ( IllegalArgumentException e ){
+			//expected
+		}
+		catch ( Exception e ){
+			fail(String.format( "FAILED: mysort(%s) threw %s",start,e));
+		}
+	}
+	@Test
+	public void mysort0() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 0,1,2,3,4,5 ) );
+		Sorts.mysort(list,0,6,Sorts.SortOrder.ASCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mysort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void mysort1() {
+		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 5,4,3,2,1 ) );
+		Sorts.mysort(list,0,5,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mysort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void mysort2() { // test single element arrays
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 5 ) );
+		Sorts.mysort(list,0,1,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mysort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void mysort3() { // test empty arrays
+		List< Integer > start = new ArrayList<>( Arrays.asList(  ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList(  ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList(  ) );
+		Sorts.mysort(list,0,0,Sorts.SortOrder.DESCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mysort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void mysort4() { // test even array
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,1,0 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 0,1,2,3,4,5 ) );
+		Sorts.mysort(list,0,6,Sorts.SortOrder.ASCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mysort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void mysort5() { // test duplicate in array
+		List< Integer > start = new ArrayList<>( Arrays.asList( 5,4,3,2,2,1 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 5,4,3,2,2,1 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,2,3,4,5 ) );
+		Sorts.mysort(list,0,6,Sorts.SortOrder.ASCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mysort(%s) -> %s, expected: %s",start,list,expected ));
+	}
+	@Test
+	public void mysort6() { // test already sorted array
+		List< Integer > start = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List< Integer > list = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		List<Integer> expected = new ArrayList<>( Arrays.asList( 1,2,3,4,5 ) );
+		Sorts.mysort(list,0,5,Sorts.SortOrder.ASCENDING);
+		if(!list.equals( expected ))
+			fail(String.format( "FAILED: mysort(%s) -> %s, expected: %s",start,list,expected ));
 	}
 }

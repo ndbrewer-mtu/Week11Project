@@ -36,10 +36,12 @@ public class SortsProfiler {
 		String ele="Elements", merg="mergesort",sel="selectionsort",ins="insertionsort";
 		System.out.printf("%15s  %15s  %15s  %15s%n",ele,merg,sel,ins);
 		for(int i = 0; i <= 20; i++ ){
-			System.out.printf( "%15d",(int) Math.pow( 2,i ) );
+			int Elements = (int) Math.pow( 2,i );
+			System.out.printf( "%15d",Elements ); // Elements in the List
+			
 			long Merge = 0;
 			for(int j = 0 ; j < numIterations; j++){
-				List<Integer> list = new Random().ints((int)Math.pow( 2,i ),-256,256).boxed().collect( Collectors.toList());
+				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
 				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};
 				Merge += profile( arg, Sorts::mergesort );
 			}
@@ -47,7 +49,7 @@ public class SortsProfiler {
 			
 			long Insertion = 0;
 			for(int j = 0 ; j < numIterations; j++){
-				List<Integer> list = new Random().ints((int)Math.pow( 2,i ),-256,256).boxed().collect( Collectors.toList());
+				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
 				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};
 				Insertion += profile( arg, Sorts::insertionsort );
 			}
@@ -55,13 +57,27 @@ public class SortsProfiler {
 			
 			long Selection = 0;
 			for(int j = 0 ; j < numIterations; j++){
-				List<Integer> list = new Random().ints((int)Math.pow( 2,i ),-256,256).boxed().collect( Collectors.toList());
+				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
 				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};
 				Selection += profile( arg, Sorts::selectionsort );
 			}
 			System.out.printf( "%15dms", Selection / numIterations);
 			
+			long Bubble = 0;
+			for(int j = 0 ; j < numIterations; j++){
+				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
+				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};
+				Bubble += profile( arg, Sorts::bubblesort );
+			}
+			System.out.printf( "%15dms", Bubble / numIterations);
 			
+			long my = 0;
+			for(int j = 0 ; j < numIterations; j++){
+				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
+				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};
+				my += profile( arg, Sorts::mysort );
+			}
+			System.out.printf( "%15dms", my / numIterations);
 			
 			System.out.println();
 		}

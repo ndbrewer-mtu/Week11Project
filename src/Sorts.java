@@ -7,6 +7,7 @@ import java.util.List;
  * If you want to prevent losing the previous unsorted data you should copy your array before calling any method in this class.
  */
 public class Sorts {
+   
    /**
     * Order to sort in.
     * <br><code>Ascending = -1</code><br><code>Descending = 1</code>

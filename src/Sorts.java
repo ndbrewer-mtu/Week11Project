@@ -13,7 +13,8 @@ public class Sorts {
    
    /**
     * Order to sort in.
-    * <br><code>Ascending = -1</code><br><code>Descending = 1</code>
+    * <br><code>Ascending = -1</code>
+    * <br><code>Descending = 1</code>
     */
    public enum SortOrder { 
       ASCENDING(-1),

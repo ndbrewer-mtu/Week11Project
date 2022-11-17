@@ -21,7 +21,6 @@ public class SortsProfiler {
 	 * @return time (in milliseconds) it took to complete action.
 	 */
 	public static long profile( Object[] arg, Consumer<Object[]> c){
-		
 		long start = System.currentTimeMillis();
 		c.accept( arg );
 		long end = System.currentTimeMillis();

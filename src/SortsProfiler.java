@@ -14,7 +14,14 @@ public class SortsProfiler {
 	
 	public static int numIterations = 10;
 	
-	public static long profile( Object[] arg, Consumer< Object[]> c){
+	/**
+	 * Profiles arguments using given method.
+	 * @param arg Objects array that should only contain 4 elements in order of List, int low, int high, Sortorder. <br>
+	 *            in a range of [low,high)
+	 * @param c method called (must only have one parameter)
+	 * @return time (in milliseconds) it took to complete action.
+	 */
+	public static long profile( Object[] arg, Consumer<Object[]> c){
 		
 		long start = System.currentTimeMillis();
 		c.accept( arg );

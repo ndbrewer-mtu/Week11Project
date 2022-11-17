@@ -32,6 +32,9 @@ public class SortsProfiler {
 	public static void main( String[] args ) {
 		String ele="Elements",mys="mysort", merg="mergesort",sel="selectionsort",ins="insertionsort",bub="bubblesort";
 		System.out.printf("%15s  %15s  %15s  %15s  %15s  %15s%n",ele,mys,merg,sel,ins,bub);
+		
+		long total = 0;
+		
 		for(int i = 0; i <= 20; i++ ){
 			int Elements = (int) Math.pow( 2,i );
 			System.out.printf( "%15d",Elements ); // Elements in the List
@@ -76,10 +79,12 @@ public class SortsProfiler {
 			}
 			System.out.printf( "%15dms", Bubble / numIterations);
 			
+			total += my + Merge + Insertion + Selection + Bubble;
+			
 			System.out.println();
 		}
 		
-		System.out.println("Finished");
+		System.out.printf("Finished in: %15dms",total);
 	}
 	
 }

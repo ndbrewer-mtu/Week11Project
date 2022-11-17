@@ -5,6 +5,9 @@ import java.util.List;
  * All sorts in this class are DESTRUCTIVE.
  * Meaning they destroy the array as they sort it.
  * If you want to prevent losing the previous unsorted data you should copy your array before calling any method in this class.
+ * <br><br>
+ * CS1131 L01 11/20/22 <br>
+ * Nathan Brewer
  */
 public class Sorts {
    
@@ -46,7 +49,8 @@ public class Sorts {
    /**
     * Sorts a List using Bubble sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder. <br>
+    * Still only accepts up to 4 arguments in order of List, int low, int high, Sortorder.
+    * Sorts the list in range of [low,high)<br>
     * <br>
     * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
@@ -85,7 +89,8 @@ public class Sorts {
    /**
     * Sorts a List using Insertion sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
+    * Still only accepts up to 4 arguments in order of List, int low, int high, Sortorder.
+    * Sorts the list in range of [low,high)<br>
     * <br>
     * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
@@ -130,7 +135,8 @@ public class Sorts {
    /**
     * Sorts a List using Selection sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
+    * Still only accepts up to 4 arguments in order of List, int low, int high, Sortorder.
+    * Sorts the list in range of [low,high)<br>
     * <br>
     * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
@@ -170,7 +176,8 @@ public class Sorts {
    /**
     * Sorts a List using Merge sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
+    * Still only accepts up to 4 arguments in order of List, int low, int high, Sortorder.
+    * Sorts the list in range of [low,high)<br>
     * <br>
     * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
@@ -251,7 +258,8 @@ public class Sorts {
    /**
     * Sorts a List using Merge sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
-    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
+    * Still only accepts up to 4 arguments in order of List, int low, int high, Sortorder.
+    * Sorts the list in range of [low,high)<br>
     * <br>
     * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.

@@ -40,7 +40,7 @@ public class SortsProfiler {
 		
 		long total = 0;
 		
-		for(int i = 0; i <= 15; i++ ){
+		for(int i = 0; i <= 20; i++ ){
 			int Elements = (int) Math.pow( 2,i );
 			System.out.printf( "%15d",Elements ); // Elements in the List
 			

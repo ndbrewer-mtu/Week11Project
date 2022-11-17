@@ -63,23 +63,23 @@ public class SortsProfiler {
 			}
 			System.out.printf( "%15dms", Insertion / numIterations);
 			
-			long Selection = 0;/*
+			long Selection = 0;
 			for(int j = 0 ; j < numIterations; j++){
 				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
 				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};
 				Selection += profile( arg, Sorts::selectionsort );
 			}
-			System.out.printf( "%15dms", Selection / numIterations);*/
+			System.out.printf( "%15dms", Selection / numIterations);
 			
-			long Bubble = 0;/*
+			long Bubble = 0;
 			for(int j = 0 ; j < numIterations; j++){
 				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
 				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};
 				Bubble += profile( arg, Sorts::bubblesort );
 			}
-			System.out.printf( "%15dms", Bubble / numIterations);*/
+			System.out.printf( "%15dms", Bubble / numIterations);
 			
-			total += Math.ceil( my  + Merge + Insertion + Selection + Bubble);
+			total += my+Merge+Insertion+Selection+Bubble;
 			
 			System.out.println();
 		}

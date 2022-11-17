@@ -38,7 +38,7 @@ public class Sorts {
       
       for(int k = 0; k < highindex; k++){
          for(int i = lowindex+1; i < highindex; i++){
-            if(list.get( i ).compareTo( list.get(i-1) ) == sortOrder.order){// && sortOrder == SortOrder.ASCENDING){
+            if(list.get( i ).compareTo( list.get(i-1) ) == sortOrder.order){
                E data = list.get( i );
                list.set( i,list.get( i-1 ) );
                list.set( i-1,data );

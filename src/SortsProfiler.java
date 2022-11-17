@@ -1,7 +1,6 @@
 import java.util.List;
 import java.util.Random;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -71,7 +70,7 @@ public class SortsProfiler {
 			}
 			System.out.printf( "%15dms", Bubble / numIterations);
 			
-			long my = 0;
+			long my = 0; // my sort is not implemented yet.
 			for(int j = 0 ; j < numIterations; j++){
 				List<Integer> list = new Random().ints(Elements,-256,256).boxed().collect( Collectors.toList());
 				Object[] arg = {list,0,list.size(), Sorts.SortOrder.ASCENDING};

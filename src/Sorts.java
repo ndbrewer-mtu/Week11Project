@@ -255,4 +255,25 @@ public class Sorts {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
       
    }
+   /**
+    * Sorts a List using Merge sort Algorithm standard.
+    * Takes in object array as argument instead of 4 arguments.
+    * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
+    * <br>
+    * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
+    * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
+    * @param <E> Generic type that should extend Comparable.
+    * @see Sorts#mysort(List, int, int, SortOrder)
+    */
+   public static <E extends Comparable<E>> void mysort(Object[] arg){
+      if( arg.length != 4 )
+         throw new IllegalArgumentException();
+      for (Object o : arg)
+         if(o == null)
+            throw new IllegalArgumentException();
+      
+      List<E> arg0 = ( List< E > ) arg[0];
+      
+      mergesort( arg0, ( int ) arg[1], ( int ) arg[2], ( SortOrder ) arg[3] );
+   }
 }

@@ -48,7 +48,7 @@ public class Sorts {
     * Takes in object array as argument instead of 4 arguments.
     * Still only accepts up to 4 arguments in order of List, int, int, Sortorder. <br>
     * <br>
-    * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
+    * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
     * @see Sorts#bubblesort(List, int, int, SortOrder)
@@ -87,7 +87,7 @@ public class Sorts {
     * Takes in object array as argument instead of 4 arguments.
     * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
     * <br>
-    * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
+    * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
     * @see Sorts#insertionsort(List, int, int, SortOrder)            
@@ -132,7 +132,7 @@ public class Sorts {
     * Takes in object array as argument instead of 4 arguments.
     * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
     * <br>
-    * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
+    * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
     * @see Sorts#selectionsort(List, int, int, SortOrder) 
@@ -172,7 +172,7 @@ public class Sorts {
     * Takes in object array as argument instead of 4 arguments.
     * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
     * <br>
-    * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
+    * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
     * @see Sorts#mergesort(List, int, int, SortOrder) 
@@ -246,13 +246,14 @@ public class Sorts {
    public static <E extends Comparable<E>> void mysort ( List< E > list, int lowindex, int highindex, SortOrder sortOrder ) {
       if(list == null  || sortOrder == null || (highindex < lowindex)) throw new IllegalArgumentException();
       
+      
    }
    /**
     * Sorts a List using Merge sort Algorithm standard.
     * Takes in object array as argument instead of 4 arguments.
     * Still only accepts up to 4 arguments in order of List, int, int, Sortorder.<br>
     * <br>
-    * Throws IllegalArgumentExpecion if arg.length is not equal to 4 or if any of the arguments are null.
+    * Throws <code>IllegalArgumentExpecion</code> if <code>arg.length</code> is not equal to 4 or if any of the arguments are null.
     * @param arg Objects array that should only contain 4 elements in order of List, int, int, Sortorder.
     * @param <E> Generic type that should extend Comparable.
     * @see Sorts#mysort(List, int, int, SortOrder)
